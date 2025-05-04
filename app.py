@@ -115,7 +115,7 @@ def summarize_with_llama(user_msg, content):
             "Content-Type": "application/json"
         },
         json={
-            "model": "meta-llama/Llama-Vision-Free",
+            "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
             "messages": messages,
             "temperature": 0.7
         }
