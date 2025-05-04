@@ -54,7 +54,7 @@ def chat():
             "Content-Type": "application/json"
         },
         json={
-            "model": "meta-llama/Llama-Vision-Free",
+            "model": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B-free",
             "messages": messages,
             "temperature": 0.7
         }
