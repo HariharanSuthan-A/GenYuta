@@ -74,14 +74,10 @@ def chat():
     })
 
 def format_response(text):
-    # If response already has good formatting, return as-is
     if '\n\n' in text or '\n- ' in text or '\n* ' in text or '\n1. ' in text:
         return text
     
-    # Split into sentences
     sentences = re.split(r'(?<=[.!?])\s+', text)
-    
-    # Group into paragraphs of 2-3 sentences or ~100 chars
     paragraphs = []
     current_para = []
     char_count = 0
@@ -131,5 +127,7 @@ def get_session(session_id):
         return jsonify(session['chat_sessions'][session_id])
     return jsonify({"error": "Session not found"}), 404
 
+# ✅ This is important for Render to work correctly:
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Render sets PORT automatically
+    app.run(host="0.0.0.0", port=port)
